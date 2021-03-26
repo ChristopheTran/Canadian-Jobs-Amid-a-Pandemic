@@ -21,10 +21,22 @@ Path("./scrape").mkdir(exist_ok=True)
 # more info
 #ref = 'https://www.jobbank.gc.ca/jobsearch/jobposting/33895735?source=searchresults'
 
-listOfMains = []
+sections = {
+    "ben":0,
+    "christopher":20000,
+    "rahul":40000,
+    "christophe":60000,
+    "michael":80000
+}
 
-for i in range(0, 20000):
-	html_text = requests.get(refs[i]).text
+runner = "christopher"
+
+relevant_refs = refs[sections[runner]:sections[runner]+20000]
+
+listOfMains = []
+for i, ref in enumerate(relevant_refs):
+
+	html_text = requests.get(ref).text
 	soup = BeautifulSoup(html_text,'lxml')
 	main = soup.find('main')
 
@@ -37,15 +49,17 @@ for i in range(0, 20000):
 	removeElemsMatching(main, 'ul', {'class': 'job-posting-details-nav'})
 
 	listOfMains.append(str(main))
+	print(f"Job at {sections[runner] + i} completed")
 
-	if i % 1000 == 0:
-		with bz2.BZ2File('./scrape/mainsList{}.bz2'.format(i), 'w') as f:
+	if len(listOfMains) == 1000:
+		with bz2.BZ2File('./scrape/mainsList{}.bz2'.format(sections[runner] + i + 1), 'w') as f:
 			pickle.dump(listOfMains, f)
+		listOfMains = []
 
 	#with open('test2.html', 'w') as f:
 	#f.write(str(main))
 
-	time.sleep(1)
+# 	time.sleep(0.01)
 
 
 
