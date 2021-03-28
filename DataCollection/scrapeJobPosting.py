@@ -25,11 +25,11 @@ sections = {
     "ben":0,
     "christopher":20000,
     "rahul":40000,
-    "christophe":63000,
+    "christophe":60000,
     "michael":80000
 }
 
-runner = "christophe"
+runner = "christopher"
 
 relevant_refs = refs[sections[runner]:sections[runner]+20000]
 
