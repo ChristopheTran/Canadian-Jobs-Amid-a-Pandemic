@@ -68,26 +68,3 @@ df.to_csv('./DataSet/JobPostDetails/data.csv', index = False)
 
 
 
-#sfile = bz2.BZ2File('DataSet/JobPostProcessed/mainsList1000.bz2', 'rb')
-#files.append(pickle.load(sfile))
-
-        #files.append(pickle.load(sfile))
-        #for i in range(len(files[0])):
-        #    htmlFile = files[0][i]
-        #    extractInfo(htmlFile)
-
-
-#
-#     
-#      sfile = bz2.BZ2File(filename, 'rb')
-#      files.append(pickle.load(sfile))
-
-
-    
-
-
-
-
-#if(pay != 'Not available'):
-    
-#else:
