@@ -25,12 +25,12 @@ def extractInfo(htmlFile):
             pay = data.find_all("li")[1].text.replace('Salary','').strip()
             payUnit = None  
         
-        print(f'''
-        Job Title: {jobTitle}
-        City: {city}
-        Pay: {pay}
-        PayUnit: {payUnit}
-        ''')
+        #print(f'''
+        #Job Title: {jobTitle}
+        #City: {city}
+        #Pay: {pay}
+        #PayUnit: {payUnit}
+        #''')
     except:
         return
 
@@ -43,10 +43,10 @@ files = []
 directory = "../DataSet/JobPostProcessed"
 for filename in os.listdir(directory):
     if filename.endswith(".bz2"):
-        print(os.path.join(directory, filename))
         file = bz2.BZ2File(os.path.join(directory, filename), 'rb')
         file = pickle.load(file)
 
+        print(os.path.join(directory, filename))
         print(f'{recordCounter} records were successfully processed out of {totalHtmlFilesToProcess} records')
         totalHtmlFilesToProcess += len(file)
 
