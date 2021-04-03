@@ -10,7 +10,7 @@ totalHtmlFilesToProcess = 0
 jobPostDetails = []
 
 def extractInfo(htmlFile):
-    soup = BeautifulSoup(encoded_str,'lxml')
+    soup = BeautifulSoup(htmlFile,'lxml')
 
     try:
         jobTitle = soup.find("span", property="title").text.strip()
@@ -40,23 +40,23 @@ def extractInfo(htmlFile):
 
 
 files = []
-directory = "./DataSet/JobPostProcessed"
+directory = "../DataSet/JobPostProcessed"
 for filename in os.listdir(directory):
     if filename.endswith(".bz2"):
         print(os.path.join(directory, filename))
         file = bz2.BZ2File(os.path.join(directory, filename), 'rb')
         file = pickle.load(file)
+
+        print(f'{recordCounter} records were successfully processed out of {totalHtmlFilesToProcess} records')
         totalHtmlFilesToProcess += len(file)
 
         for i in range(len(file)):
             htmlFile = file[i]
             extractInfo(htmlFile)
-            print(f'{recordCounter} records were successfully processed out of {totalHtmlFilesToProcess} records')
             
 
-
 df = pandas.DataFrame(jobPostDetails, columns = ['Job Title', 'City','Pay','PayUnit']) 
-df.to_csv('./DataSet/JobPostDetails/data.csv', index = False)
+df.to_csv('../DataSet/JobPostDetails/data.csv', index = False)
             
 
 
