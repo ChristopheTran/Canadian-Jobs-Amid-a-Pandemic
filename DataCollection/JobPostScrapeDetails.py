@@ -36,11 +36,11 @@ def extractInfo(htmlFile, i):
     #r = tree.xpath('//span[@class="fa fa-file-text-o"]')
     r = tree.xpath('//span[@property="employmentType"]')
     employmentTypeList = list(r[0].itertext()) if len(r)>0 else ''
-    employmentTerms = employmentTypeList[0] if len(employmentTypeList)>0 else ''
-    fullOrPartTime = employmentTypeList[1] if len(employmentTypeList)>1 else ''
+    employmentTerms = employmentTypeList[0].strip() if len(employmentTypeList)>0 else ''
+    fullOrPartTime = employmentTypeList[1].strip() if len(employmentTypeList)>1 else ''
 
     r = tree.xpath('//span[@class="fa fa-user"]')
-    vacancies = list(r[0].getparent().itertext())[3] if len(r)>0 else ''
+    vacancies = list(r[0].getparent().itertext())[3].strip() if len(r)>0 else ''
     r = tree.xpath('//span[@property="specialCommitments"]')
     specialCommitment = r[0].text.strip() if len(r)>0 and r[0].text != None else ''
     r = tree.xpath('//span[@property="benefits"]')
@@ -53,6 +53,10 @@ def extractInfo(htmlFile, i):
     hiringOrg = ''.join(r[0].itertext()).strip() if len(r)>0 else ''
     r = tree.xpath('//span[@class="source-image"]')
     jobSource = ''.join(r[0].itertext()).strip() if len(r)>0 else ''
+    r = tree.xpath('//span[@class="noc-no"]')
+    nocNo = r[0].text.strip()[4:] if len(r)>0 else ''
+    r = tree.xpath('//span[@class="noc-title"]')
+    nocTitle = r[0].text.strip() if len(r)>0 else ''
 
     r = tree.xpath('//p[@property="educationRequirements"]')
     educationReqs = r[0].text.strip() if len(r)>0 else ''
@@ -88,7 +92,7 @@ def extractInfo(htmlFile, i):
             postalCode = locationList[2]
         jobPostDetails.append((jobTitle, rawPay, minPay, maxPay, payUnit, workHours, startDate,
         employmentTerms, fullOrPartTime, vacancies, specialCommitment, benefits, medianWage,
-        dateModified, hiringOrg, jobSource, educationReqs, qualifications, experienceReqs,
+        dateModified, hiringOrg, jobSource, nocNo, nocTitle, educationReqs, qualifications, experienceReqs,
         responsibilities, skills, language, postingId, href, address, city, postalCode))
 
     elif len(multiCity)>0:
@@ -132,7 +136,7 @@ for filename in os.listdir(directory):
 
 df = pandas.DataFrame(jobPostDetails, columns = ['Job Title', 'RawPay','MinPay', 'MaxPay', 'PayUnit', 'WorkHours', 'StartDate',
     'EmploymentTerms', 'FullOrPartTime', 'Vacancies', 'SpecialCommitment', 'Benefits', 'MedianWage',
-    'DateModified', 'HiringOrg', 'JobSource', 'EducationReqs', 'Qualifications', 'ExperienceReqs',
+    'DateModified', 'HiringOrg', 'JobSource', 'NocNo', 'NocTitle', 'EducationReqs', 'Qualifications', 'ExperienceReqs',
     'Responsibilities', 'Skills', 'Language', 'PostingId', 'Href', 'Address', 'City', 'PostalCode'])
 df.to_csv('../DataSet/JobPostDetails/data.csv', index = False)
             
