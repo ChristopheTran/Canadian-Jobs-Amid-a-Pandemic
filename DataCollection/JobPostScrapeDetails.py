@@ -109,7 +109,7 @@ def extractInfo(htmlFile, i):
                 postalCode = locationList[tripleIndex+2]
             jobPostDetails.append((jobTitle, rawPay, minPay, maxPay, payUnit, workHours, startDate,
                 employmentTerms, fullOrPartTime, vacancies, specialCommitment, benefits, medianWage,
-                dateModified, hiringOrg, jobSource, educationReqs, qualifications, experienceReqs,
+                dateModified, hiringOrg, jobSource, nocNo, nocTitle, educationReqs, qualifications, experienceReqs,
                 responsibilities, skills, language, postingId, href, address, city, postalCode))
     #end function
 
