@@ -24,6 +24,18 @@ The code used to scrape the numbeo and job bank data is located within the DataC
   - https://www.numbeo.com/quality-of-life/country_result.jsp?country=Canada
   - https://www.numbeo.com/crime/country_result.jsp?country=Canada 
 
+## Reproduction Instructions:
+ 1. Download a web driver (such as geckodriver)
+ 2. Put geckodriver at the following location: SYSC4906-Project\DataCollection\geckodriver\geckodriver.exe
+ 3. cd DataCollection/
+ 4. Run python webscrape.py
+ 5. Run python cleanRefsList.py
+ 6. Change scrapeJobPosting.py so that runner = "the name of the runner"
+ 7. Run python scrapeJobPosting.py
+ 8. Run python JobPostScrapeDetails.py
+ 9. Run python NovValueSkillLevel.py
+ 10. Run python scrapeNumbeo.py
+
 ## Raw and Cleaned Data:
 All datasets are found in the DataSet directory.
 - Job Bank Canada: 
