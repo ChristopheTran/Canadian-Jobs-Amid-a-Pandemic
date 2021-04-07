@@ -33,8 +33,8 @@ def get_data(key,url):
     #df
     
     # Save to CSV
-    df.to_csv(key + '.csv', index = False)
-    print('Data saved to: ' + key +'.csv')
+    df.to_csv('../DataSet/Numbeo Data/' + key + '.csv', index = False)
+    print('Data saved to: ../DataSet/Numbeo Data/' + key +'.csv')
 
 
 urls = {
