@@ -15,7 +15,7 @@ The notebook that analyzes that datasets is called Final_Notebook.ipynb. For the
 The code used to scrape the numbeo and job bank data is located within the DataCollection. The .py files require one to install the depenendcies within the requirements.txt file. these dependencies can be installed by executing the command ```$ pip install -r requirements.txt```.
 - scrapeJobPosting.py :  scrapes each of the job posts within https://www.jobbank.gc.ca, extracts the main html content of each page and saves the result within .bz2 files named mainsList. The files can be found with the DataSet/JobPostProcessed directory. 
 - JobPostScrapeDetails.py : iterates through each of the files within the DataSet/JobPostProcessed directory and parses the HTML to extract job post details such as the job title and the expected pay. The job details are then stored in a .csv file in the DataSet/JobPostDetails directory
-- scrapeNumbeo.ipynb: scrapes the public web pages within the https://numbeo.com website and then uploads the result to a .csv file within the DataSet/Numbeo Data directory. The exact web pages that are scrapped is listed below. The data for each of the webpages is stored within its own .csv file. 
+- scrapeNumbeo.py: scrapes the public web pages within the https://numbeo.com website and then uploads the result to a .csv file within the DataSet/Numbeo Data directory. The exact web pages that are scrapped is listed below. The data for each of the webpages is stored within its own .csv file. 
 
   - https://www.numbeo.com/cost-of-living/country_result.jsp?country=Canada
   - https://www.numbeo.com/property-investment/country_result.jsp?country=Canada
