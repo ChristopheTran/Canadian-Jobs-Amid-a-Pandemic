@@ -24,7 +24,7 @@ The code used to scrape the numbeo and job bank data is located within the DataC
   - https://www.numbeo.com/crime/country_result.jsp?country=Canada 
 
 ## **Team Members**:
-- Bejamine Melone
+- Benjamin Melone
 - Christophe Tran
 - Christopher Wang
 - Rahul Anikumar
