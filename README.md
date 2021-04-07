@@ -39,7 +39,8 @@ The code used to scrape the numbeo and job bank data is located within the DataC
  11. Download NOC data from open data into DataSet/NOC
  12. cd to project root
  13. Run jupyter notebook
- 14. Run Final_Notebook.ipynb cell by cell until completion
+ 14. Run Final_Notebook.ipynb cell by cell until completion 
+     - (Alternate Link on Google Collab: https://colab.research.google.com/drive/1F5cmi30ey6gIFgFGZqk8CDCv8CgRzcPq?usp=sharing)
 
 ## Raw and Cleaned Data:
 All datasets are found in the DataSet directory.
