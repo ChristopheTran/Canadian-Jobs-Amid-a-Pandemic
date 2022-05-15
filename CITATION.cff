@@ -1,0 +1,29 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  Canadian Jobs amid a Pandemic: Examining the
+  Relationship between Professional Industry and
+  Salary to Regional Key Performance Indicator
+message: >-
+  If you use this dataset, please cite it using the
+  metadata from this file.
+type: dataset
+authors:
+  - given-names: 'Rahul ,'
+    family-names: Anilkumar
+  - given-names: 'Benjamin '
+    family-names: Melone
+  - given-names: 'Michael '
+    family-names: Patsula
+  - given-names: 'Christophe '
+    family-names: Tran
+  - given-names: 'Christopher '
+    family-names: Wang
+  - given-names: Kevin
+    family-names: Dick
+  - given-names: 'Hoda '
+    family-names: Khalil
+  - given-names: 'Gabriel '
+    family-names: Wainer
